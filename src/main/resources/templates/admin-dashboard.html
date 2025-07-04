@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Admin Dashboard</title></head>
+<body>
+<h2>Admin - Add Student Marks</h2>
+
+<form action="/add-result" method="post">
+    <label for="student">Select Student:</label>
+    <select name="studentId" id="student">
+        <option th:each="student : ${students}" 
+                th:value="${student.id}" 
+                th:text="${student.name}">Student</option>
+    </select>
+
+    <label for="subject">Subject:</label>
+    <input type="text" name="subject" id="subject" required />
+
+    <label for="marks">Marks:</label>
+    <input type="number" name="marks" id="marks" required />
+
+    <button type="submit">Add Result</button>
+</form>
+
+</body>
+</html>
